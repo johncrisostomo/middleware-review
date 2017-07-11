@@ -1,11 +1,11 @@
 import { FETCH_USERS } from './types';
 import axios from 'axios';
 
-export const fetchUsers = () => async dispatch => {
-  axios.get('http://jsonplaceholder.typicode.com/users').then(response => {
-    dispatch({
-      type: FETCH_USERS,
-      payload: response.data,
-    });
-  });
+export const fetchUsers = () => {
+  const request = axios.get('http://jsonplaceholder.typicode.com/users');
+
+  return {
+    type: FETCH_USERS,
+    payload: request,
+  };
 };
